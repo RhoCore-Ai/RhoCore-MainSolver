@@ -18,9 +18,6 @@ include_directories(${NLOHMANN_JSON_PATH})
 # Definiert das Haupt-Executable
 add_executable(RhoCore_solver RhoCore_solver.cu)
 
-# Linkt die CUDA-Laufzeitbibliothek
-target_link_libraries(RhoCore_solver PRIVATE CUDA::cudart)
-
 # Erstellt ein benutzerdefiniertes Ziel, um die Datenbank vorzubereiten
 add_custom_target(
     prepare_db
