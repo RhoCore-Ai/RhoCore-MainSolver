@@ -754,7 +754,15 @@ void generate_filtered_privkeys(
     }
 
     auto hamming_range = params["hamming_weight_range"].get<std::vector<int>>();
-    std::map<char, int> hex_penalties = params["hex_score_penalties"].get<std::map<char, int>>();
+    
+    // Korrektur: Liest die Schlüssel als Strings und konvertiert sie dann
+    std::map<std::string, int> penalties_str = params["hex_score_penalties"].get<std::map<std::string, int>>();
+    std::map<char, int> hex_penalties;
+    for(auto const& [key, val] : penalties_str) {
+        if (!key.empty()) {
+            hex_penalties[key[0]] = val;
+        }
+    }
 
     size_t found_count = 0;
     while (found_count < n && scalar_cmp(&current_key, &end_key) <= 0) {
