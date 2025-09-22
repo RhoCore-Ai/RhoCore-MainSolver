@@ -1,7 +1,7 @@
 {
-  "range_min": "400000000000000000",
+  "range_min": "1",
   "range_max": "7fffffffffffffffff",
-  "bits": 71,
+  "bits": 1,
   "hamming_weight_range": [60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75],
   "hex_score_penalties": {
     "7": 10, "b": 8, "d": 8, "e": 7,
