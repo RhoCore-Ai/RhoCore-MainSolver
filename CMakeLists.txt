@@ -1,9 +1,6 @@
 cmake_minimum_required(VERSION 3.10)
 project(RhoCore_solver LANGUAGES CXX CUDA)
 
-# Findet das CUDA-Toolkit
-find_package(CUDA REQUIRED)
-
 # Pfad zur nlohmann/json.hpp-Bibliothek
 set(NLOHMANN_JSON_PATH "${CMAKE_SOURCE_DIR}/RhoCore_solver")
 
@@ -12,7 +9,7 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CUDA_STANDARD 17)
 set(CMAKE_CUDA_STANDARD_REQUIRED ON)
-set(CMAKE_CUDA_ARCHITECTURES "75 89 120") # Beispiel für eine moderne GPU (Turing). Passen Sie diese bei Bedarf an.
+set(CMAKE_CUDA_ARCHITECTURES "120") # Angepasst für Ihre RTX 5090
 
 # Fügt die Header-Pfade hinzu
 include_directories(${NLOHMANN_JSON_PATH})
@@ -33,6 +30,9 @@ add_custom_target(
 
 # Stellt sicher, dass das prepare_db-Ziel vor dem Hauptprogramm ausgeführt wird
 add_dependencies(RhoCore_solver prepare_db)
+
+# Optional: Installiert das Executable, um es einfach ausführen zu können
+install(TARGETS RhoCore_solver DESTINATION bin)
 
 # Optional: Installiert das Executable, um es einfach ausführen zu können
 install(TARGETS RhoCore_solver DESTINATION bin)
