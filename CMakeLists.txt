@@ -12,7 +12,7 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CUDA_STANDARD 17)
 set(CMAKE_CUDA_STANDARD_REQUIRED ON)
-set(CMAKE_CUDA_ARCHITECTURES "75") # Beispiel für eine moderne GPU (Turing). Passen Sie diese bei Bedarf an.
+set(CMAKE_CUDA_ARCHITECTURES "75 89 120") # Beispiel für eine moderne GPU (Turing). Passen Sie diese bei Bedarf an.
 
 # Fügt die Header-Pfade hinzu
 include_directories(${NLOHMANN_JSON_PATH})
